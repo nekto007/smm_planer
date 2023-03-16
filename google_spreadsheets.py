@@ -39,6 +39,8 @@ def get_download_file(link):
 def get_rows_for_posts(all_table_rows):
     rows_for_post = []
     for row in all_table_rows:
-        if row[SMM_TG].value != 'TRUE' or row[SMM_OK].value != 'TRUE' or row[SMM_VK].value != 'TRUE':
+        if row[SMM_TG].value == 'TRUE' or row[SMM_OK].value == 'TRUE' or row[SMM_VK].value == 'TRUE':
             rows_for_post.append(row)
+        else:
+            break
     return rows_for_post
