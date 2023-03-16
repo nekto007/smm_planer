@@ -7,7 +7,7 @@ from globals import *
 
 
 def update_post_id(worksheet_smm, field_id, post_id):
-    print(worksheet_smm.update_value(str(field_id), post_id))
+    worksheet_smm.update_value(str(field_id), post_id)
 
 
 def get_parse_file(path):

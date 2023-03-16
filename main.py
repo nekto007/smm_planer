@@ -5,12 +5,22 @@ import pygsheets
 import telegram
 from dotenv import load_dotenv
 
-from globals import *
 from google_spreadsheets import get_rows_for_posts, get_download_file, get_parse_file, update_post_id
 from tg import post_telegram
 
 
 def main():
+    # cell groups
+    SMM_TG = 0
+    SMM_OK = 1
+    SMM_VK = 2
+    SMM_DATE_POST = 3
+    SMM_TIME_POST = 4
+    SMM_DATE_ACTUAL_POST = 5
+    SMM_GOOGLE_DOC = 6
+    SMM_TELEGRAM_POST_ID = 8
+    SMM_VKONTAKTE_POST_ID = 9
+    SMM_ODNOKLASSNIKI_POST_ID = 10
     load_dotenv()
     service_file_spreadsheet = os.getenv('SERVICE_FILE_SPREADSHEET')
     spreadsheet_smm_key = os.getenv('SPREADSHEET_SMM_KEY')
