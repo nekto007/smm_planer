@@ -41,6 +41,4 @@ def get_rows_for_posts(all_table_rows):
     for row in all_table_rows:
         if row[SMM_TG].value != 'FALSE' or row[SMM_OK].value != 'FALSE' or row[SMM_VK].value != 'FALSE':
             rows_for_post.append(row)
-        else:
-            break
     return rows_for_post
