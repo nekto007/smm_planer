@@ -6,8 +6,10 @@ from docx_parser import DocumentParser
 from globals import *
 
 
-def update_post_id(worksheet_smm, field_id, post_id):
-    worksheet_smm.update_value(str(field_id), post_id)
+def update_post_id(row, post_id, network):
+    row[globals()[f"SMM_{network}"]].color = (0, 1, 0, 0)
+    row[globals()[f"SMM_{network}_POST_ID"]].value = post_id
+    row[globals()[f"SMM_{network}"]].value = True
 
 
 def get_parse_file(path):
@@ -39,8 +41,10 @@ def get_download_file(link):
 def get_rows_for_posts(all_table_rows):
     rows_for_post = []
     for row in all_table_rows:
-        if row[SMM_TG].value == 'TRUE' or row[SMM_OK].value == 'TRUE' or row[SMM_VK].value == 'TRUE':
+        if row[SMM_TG].value == 'TRUE' and row[SMM_TG_POST_ID].value == '':
             rows_for_post.append(row)
-        else:
-            break
+        elif row[SMM_OK].value == 'TRUE' and row[SMM_OK_POST_ID].value == '':
+            rows_for_post.append(row)
+        elif row[SMM_VK].value == 'TRUE' and row[SMM_VK_POST_ID].value == '':
+            rows_for_post.append(row)
     return rows_for_post
