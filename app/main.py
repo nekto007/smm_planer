@@ -124,6 +124,7 @@ def main():
             update_post_id(row, post_id, network='OK')
         if image:
             os.remove(image)
+        time.sleep(5)
     for row in rows_for_delete:
         delete_date = row[SMM_DATE_ACTUAL_POST].value
         if delete_date > today:
@@ -139,6 +140,7 @@ def main():
             if row[SMM_OK_POST_ID].value:
                 post_id = row[SMM_OK_POST_ID].value
                 delete_ok_post(ok_app_key, ok_access_token, ok_sesion_key, post_id)
+            time.sleep(5)
         except telegram.error.BadRequest:
             print('Message to delete not found')
         finally:

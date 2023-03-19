@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  smm_planer:
+    build: .
+    env_file:
+      - ./app/.env
+    entrypoint: [ "sh", "/app/entrypoint.sh" ]
+
